@@ -1,0 +1,147 @@
+* {
+    transition: all 0.2s ease-in-out;
+    --bg-color: #0c192c;
+    --c-color: #fdfdfd;
+}
+
+html {
+    padding: 0;
+    margin: 0;
+}
+body{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--bg-color);
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+}
+
+/* Bubble Effect */
+
+.bubbles {
+    position: relative;
+    display: flex;
+}
+
+.bubbles span{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: #4fc3dc;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s / var(--i));
+}
+
+.bubbles span:nth-child(even) {
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544,
+    0 0 50px #ff2d75,
+    0 0 100px #ff2d75;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(100vh) scale(0);
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+/* Birthday Card */
+
+.card {
+    position: fixed;
+    bottom: 50px;
+    right: 180px;
+    background: #fdfdfd;
+    border-radius: 20px;
+    height: 85vh;
+    width: 80vw;
+    box-shadow: 0 13px 16px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    overflow: hidden;
+}
+
+h5 {
+    font-size: 1.3rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+img.birthday {
+    max-height: 40vh;
+}
+
+.text {
+    padding: 1rem;
+}
+
+.muted {
+    opacity: .8;
+}
+
+.space {
+    height: 100px;
+}
+
+/* Cake Button */
+.button {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 15px;
+    transition: all .5s ease;
+}
+
+.button:hover {
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: #3e8e41;
+}
+
+.button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+/* Responsive Section */
+
+@media only screen and (min-width: 1000px) {
+    .card{
+        flex-direction: row-reverse;
+    }
+    .card img.birthday {
+        width: 100%;
+        max-width: 50vw;
+        max-height: unset;
+    }
+}
